@@ -326,42 +326,44 @@ class MainController extends BaseController
   public function render()
   {
     $result = $this->evo->runSnippet('DocLister', [
-      'parents' => 2,
-      'depth' => 1,
-      'tvPrefix' => '',
-      'tvList' => 'post_mainphoto,post_tags',
-      'display' => 10,
-      'returnDLObject' => 1,
+        'parents' => 2,
+        'depth' => 1,
+        'tvPrefix' => '',
+        'tvList' => 'post_mainphoto,post_tags',
+        'returnDLObject' => 1,
+        'paginate' => 'pages',
+        'display' => 10,
+        'TplPrevP' => '@CODE: <li><a href="[+link+]" class="button previous">&laquo;</a></li>',
+        'TplNextP' => '@CODE: <li><a href="[+link+]" class="button  next">&raquo;</a></li>',
+        'TplPage' => '@CODE: <li><a class="button" href="[+link+]">[+num+]</a></li>',
+        'TplCurrentPage' => '@CODE: <li class=" is-active">[+num+]</li>',
+        'TplWrapPaginate' => '@CODE: <ul class="actions special pagination">[+wrap+]</ul>',
     ]);
 
     $result = $result->getDocs();
-    $tags_ids = null;
+    $tags_ids = [];
 
-    foreach($result as $document){
-      if( $document['post_tags'] ){
-        foreach(explode(',',$document['post_tags']) as $tag_id){
-          $tags_ids[] = $tag_id;
-        }
-      }
+    foreach ($result as $document) {
+        $document['post_tags']  = explode(',', $document['post_tags']);
+        $tag_ids = array_merge($tag_ids, $document['post_tags']);
     }
-    $tags_ids = array_unique( $tags_ids);
-    
-    $tags =  $this->evo->runSnippet('DocLister', [
-      'idType' => 'documents',
-      'documents' => implode(",",$tags_ids),
-      'returnDLObject' => 1,
-    ]);
+    $tags_ids = array_unique($tags_ids);
 
+    $tags =  $this->evo->runSnippet('DocLister', [
+        'idType' => 'documents',
+        'documents' => implode(",", $tags_ids),
+        'returnDLObject' => 1,
+    ]);
     $tags = $tags->getDocs();
-    foreach($result as $document){
-      if( $document['post_tags'] ){
-        foreach(explode(',',$document['post_tags']) as $tag_id){
-          $result[$document['id']]['post_tags_custom'][] = $tags[$tag_id];
+
+    foreach ($result as $document) {
+        if ($document['post_tags']) {
+            foreach (explode(',', $document['post_tags']) as $tag_id) {
+                $result[$document['id']]['post_tags_custom'][] = $tags[$tag_id];
+            }
+        } else {
+            $result[$document['id']]['post_tags_custom'] = [];
         }
-      }
-      else{
-        $result[$document['id']]['post_tags_custom'] = [];
-      }
     }
     $this->data['posts'] = $result;
     return $this->data['posts'];
@@ -385,7 +387,7 @@ class MainController extends BaseController
 ```
 
 
-Повторите это в шаблоне и контроллере для страницы "Все блоги".
+Повторите это в шаблоне и контроллере для страницы "Все блоги" `BlogsController`, но учитывая пагинацию.
 
 
 ---
@@ -396,6 +398,7 @@ class MainController extends BaseController
 * Во всех лентах материалов добавились кликабельные теги.
 ---
 
+В процессе разработки мы накопили технический долг - много сущностей дублирует друг друга. Давайте слегка [оптимизируем код и шаблоны](/012_%D0%9E%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BA%D0%BE%D0%B4%D0%B0%20%D0%B8%20%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%BE%D0%B2.md).
 
 
 
