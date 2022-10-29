@@ -110,3 +110,4 @@ php artisan vendor:publish --provider="EvolutionCMS\SitemapXml\SitemapXmlService
 * Есть карты сайта
 ---
 
+Переходим к созданию поиска по блогу.
