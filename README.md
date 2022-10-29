@@ -1,6 +1,7 @@
 # Уроки по созданию блога на Evolution CMS 3
 
 Порог входа - знание html/css, базовый уровень php.
+Демо: [demoblog.kazunin.ru](http://demoblog.kazunin.ru/)
 
 1. [Введение. Нужные программы и их настройки](/001_%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5.%20%D0%9D%D1%83%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B.md)
 2. [Установка Evolution CMS](/002_%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Evolution%20CMS.md)
