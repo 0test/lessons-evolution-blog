@@ -1,7 +1,23 @@
 # Уроки по созданию блога на Evolution CMS 3
 
-Порог входа - знание html/css, базовый уровень php.
+[![CMS Evolution](https://img.shields.io/badge/CMS-Evolution-brightgreen.svg)](https://github.com/evocms-community/evolution)  ![PHP version](https://img.shields.io/badge/PHP->=v7.4-green.svg?php=7.4) [![Documentation](https://img.shields.io/badge/Documentation-ready-green)](https://github.com/0test/lessons-evolution-blog)
+
 Демо: [demoblog.kazunin.ru](http://demoblog.kazunin.ru/)
+
+
+Курс для начинающих, порог входа — знать html/css/php. Желательно в общих чертах понимать, что такое классы.
+Разбираем всё, начиная от установки OpenServer/VSCode до финала.
+
+Что на выходе:
+* Получите простой, быстрый бложег.
+* Поймёте, что такое blade
+* Поработаете с контроллерами
+* Чуток освоите апи Evolution CMS
+* Получите классную основу для сакраментального «уйти в Ларавел»
+
+*Тема дизайна — free for personal and commercial use.
+Т.е. можно собирать на ней сайты на продажу.*
+
 
 1. [Введение. Нужные программы и их настройки](/001_%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5.%20%D0%9D%D1%83%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B.md)
 2. [Установка Evolution CMS](/002_%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20Evolution%20CMS.md)
