@@ -345,7 +345,7 @@ class MainController extends BaseController
 
     foreach ($result as $document) {
         $document['post_tags']  = explode(',', $document['post_tags']);
-        $tag_ids = array_merge($tag_ids, $document['post_tags']);
+        $tags_ids = array_merge($tags_ids, $document['post_tags']);
     }
     $tags_ids = array_unique($tags_ids);
 
