@@ -42,3 +42,5 @@ _Тема дизайна — free for personal and commercial use.
 
 ## Полезное:
 Готов курс [по созданию сайта компании на Evolution CMS 3](https://github.com/0test/lessons-evolution-company)
+
+Спасибо автору вы можете отправить на Сбер 5469120010280898, или Юмани [410011160949342](https://yoomoney.ru/to/410011160949342).
